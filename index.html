@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metadata Injector By Nawab Zada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between p-4 md:p-8 relative">
+
+    <div id="lockModal" class="fixed inset-0 bg-slate-950/95 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6 md:p-8 max-w-md w-full text-center space-y-6">
+            <div class="text-5xl animate-bounce">🔐</div>
+            <div>
+                <h2 class="text-xl md:text-2xl font-bold text-white mb-2">Tool is Locked!</h2>
+                <p class="text-sm text-slate-400">Follow my WhatsApp channel to unlock this tool instantly and get upcoming updates.</p>
+            </div>
+            <div class="space-y-3">
+                <a href="https://whatsapp.com/channel/0029VbB47ttDDmFNztpnZf2m" target="_blank" id="followBtn" class="block w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl transition duration-200 shadow-lg text-sm">
+                    📢 Follow WhatsApp Channel
+                </a>
+                <button id="unlockBtn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-4 rounded-xl transition duration-200 shadow-lg text-sm">
+                    🔓 I Have Followed - Unlock Tool
+                </button>
+            </div>
+            <p class="text-xs text-slate-500">Developer: <span class="text-blue-400 font-bold">Nawab Zada Hacker ✌️🦅🙌</span></p>
+        </div>
+    </div>
+
+    <main class="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6 md:p-8">
+        
+        <header class="text-center mb-8">
+            <div class="inline-block bg-blue-600/20 border border-blue-500/30 text-blue-400 text-xs font-semibold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+                Secure Data Embedding Utility
+            </div>
+            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-2">
+                Hidden Payload Image & Emoji Injector
+            </h1>
+            <p class="text-xs md:text-sm text-slate-400">
+                Developer: <span class="text-blue-400 font-bold">Nawab Zada Hacker ✌️🦅🙌</span>
+            </p>
+        </header>
+
+        <div class="space-y-6">
+            
+            <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">
+                     Select Emoji or Picture (PNG format recommended)
+                </label>
+                <div class="relative border-2 border-dashed border-slate-700 hover:border-blue-500 rounded-xl p-6 text-center bg-slate-950/50 transition duration-200 cursor-pointer">
+                    <input type="file" id="fileInput" accept="image/png, image/jpeg" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full">
+                    <div id="uploadPrompt" class="space-y-2">
+                        <svg class="mx-auto h-10 w-10 text-slate-500" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="text-sm text-slate-400">Click to upload or drag & drop your image/emoji</p>
+                        <p id="fileNameDisplay" class="text-xs text-blue-400 font-medium"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">
+                    Enter Metadata / Secret Text to Hide in Background
+                </label>
+                <textarea id="metaTextInput" rows="4" placeholder="Yahan wo text likho jo is pic ya emoji ke background mein embed karna hai..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-slate-100 focus:outline-none focus:border-blue-500 transition"></textarea>
+            </div>
+
+            <button id="processBtn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition duration-200 flex items-center justify-center space-x-2">
+                <span>submit</span>
+            </button>
+        </div>
+
+        <div id="outputSection" class="mt-8 pt-6 border-t border-slate-800 hidden text-center space-y-4">
+            <h3 class="text-sm font-semibold text-slate-300">Generated File with Background Metadata:</h3>
+            <div class="flex justify-center">
+                <img id="resultImage" class="max-h-48 rounded-xl border border-slate-700 shadow-md bg-slate-950 p-2" alt="Processed Output">
+            </div>
+            <div class="flex gap-3">
+                <a id="downloadBtn" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl text-center transition duration-200 text-sm">
+                    📥 Download File
+                </a>
+                <button id="copyDataBtn" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-3 px-4 rounded-xl transition duration-200 text-sm">
+                    📋 Copy Hidden Info
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="mt-8 text-center text-xs text-slate-500">
+        <p>Developed by Nawab Zada Hacker ✌️🦅🙌</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
